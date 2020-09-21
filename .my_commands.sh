@@ -25,21 +25,12 @@ function delete() {
   rm -fr $1
 }
 
-function goto() {
+function commit() {
   cd
   cd Documents/GitHubProjects/$1
-}
-
-function commit() {
+  read -p "Enter file name: " file_name
   read -p "Enter Commit Summary: " message
-  git add $1
-  git commit -m "$message"
-  git push origin master
-}
-
-function commitAll() {
-  read -p "Enter Commit Summary: " message
-  git add -A
+  git add $file_name
   git commit -m "$message"
   git push origin master
 }
