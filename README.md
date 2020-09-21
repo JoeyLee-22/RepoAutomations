@@ -12,8 +12,8 @@ delete    - deletes given repo from github and from local files
 
 goto      - goes to a given repo for easier committing
 
-commit    - commits a given file and asks for a summary (needs to be in correct repo)
+commit    - commits a given file and asks for a summary (needs to be in correct repo) then pushes it to master 
 
-For all three commands, you need to give a repo after the command
+For all commands, you need to give a repo or file name after the command
 
-Ex: `create test`
+Ex: `create test` or `commit test.py`
