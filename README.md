@@ -4,7 +4,7 @@ Python and shell program to automate creating and deleting projects
 - - -
 
 # How To Use
-You will need to add your own paths to all the .my_commands.sh file
+You will need to add your own paths to the .my_commands.sh file
 
 create    - makes new repo and adds a readme file
 
