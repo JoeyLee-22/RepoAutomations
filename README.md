@@ -6,6 +6,8 @@ Python and shell program to automate creating and deleting repositories(repos) a
 # How To Use
 You will need to add your own paths to the .my_commands.sh file
 
+You will also need to make two txt files, password.txt and email.txt, these are used to log into github (only needed for create and delete)
+
 create -- makes new repo and adds a readme file
 
 delete -- deletes given repo from github and from local files
