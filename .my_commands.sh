@@ -29,3 +29,10 @@ function goto() {
   cd
   cd Documents/GitHubProjects/$1
 }
+
+function commit() {
+  read -p "Enter Commit Message: " message
+  git add $1
+  git commit -m "$message"
+  git push origin master
+}
