@@ -31,7 +31,8 @@ function goto() {
 }
 
 function commit() {
-  if ["$1" != "README.md"]
+  file="README.md"
+  if [[ "$1" != "$file" ]]
   then
     read -p "Enter Commit Summary: " message
     git add $1
