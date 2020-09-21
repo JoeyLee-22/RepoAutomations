@@ -30,7 +30,7 @@ function goto() {
   cd Documents/GitHubProjects/$1
 }
 
-function commit() {
+function GP() {
   file="README.md"
   if [[ "$1" != "$file" ]]
   then
