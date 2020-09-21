@@ -12,7 +12,7 @@ delete -- deletes given repo from github and from local files
 
 goto -- goes to a given repo to be able to use commit command
 
-GP -- adds then commits local changes and asks for a summary (summary is automatically 'update README.md' if given file is README.md) then pushes it to master 
+gp -- adds then commits local changes and asks for a summary (summary is automatically 'update README.md' if given file is README.md) then pushes it to master for a given file
 
 For all commands, you need to give a repo or file name after the command
 
