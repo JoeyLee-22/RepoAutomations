@@ -1,5 +1,5 @@
 # Repository Automations
-Python and shell program to automate creating and deleting projects
+Python and shell program to automate creating and deleting repositories(repos) and more
 
 - - -
 
