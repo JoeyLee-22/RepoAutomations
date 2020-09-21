@@ -30,7 +30,7 @@ function goto() {
   cd Documents/GitHubProjects/$1
 }
 
-function GP() {
+function gp() {
   file="README.md"
   if [[ "$1" != "$file" ]]
   then
