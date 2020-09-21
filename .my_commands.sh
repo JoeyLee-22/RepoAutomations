@@ -31,8 +31,14 @@ function goto() {
 }
 
 function commit() {
-  read -p "Enter Commit Summary: " message
-  git add $1
-  git commit -m "$message"
+  if ["$1" != "README.md"]
+  then
+    read -p "Enter Commit Summary: " message
+    git add $1
+    git commit -m "$message"
+  else
+    git add $1
+    git commit -m "update README.md"
+  fi
   git push origin master
 }
