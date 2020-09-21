@@ -10,9 +10,9 @@ create    - makes new repo and adds a readme file
 
 delete    - deletes given repo from github and from local files
 
-goto      - goes to a given repo for easier committing
+goto      - goes to a given repo to be able to use commit command
 
-commit    - commits a given file and asks for a summary (needs to be in correct repo) then pushes it to master 
+commit    - commits a given file and asks for a summary (summary is automatically 'update README.md' if given file is README.md) then pushes it to master 
 
 For all commands, you need to give a repo or file name after the command
 
