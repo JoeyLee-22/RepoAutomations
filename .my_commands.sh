@@ -31,8 +31,15 @@ function goto() {
 }
 
 function commit() {
-  read -p "Enter Commit Message: " message
+  read -p "Enter Commit Summary: " message
   git add $1
+  git commit -m "$message"
+  git push origin master
+}
+
+function commitAll() {
+  read -p "Enter Commit Summary: " message
+  git add -A
   git commit -m "$message"
   git push origin master
 }
