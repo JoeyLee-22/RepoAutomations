@@ -4,6 +4,7 @@ alias bash_profile='open ~/.bash_profile'
 alias commands='open ~/Documents/GitHubProjects/RepoAutomations/.my_commands.sh'
 
 function create() {
+  cd
   cd Documents/GitHubProjects
   mkdir $1
   cd
