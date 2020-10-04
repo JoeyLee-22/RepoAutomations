@@ -19,6 +19,8 @@ browser.get('https://www.github.com/new')
 repository_name_form = browser.find_element_by_xpath('/html/body/div[4]/main/div/form/div[2]/auto-check/dl/dd/input')
 repository_name_form.send_keys(repository_name)
 
+private_button = browser.find_element_by_xpath('//*[@id="repository_visibility_private"]').click()
+
 time.sleep(0.5)
 
 create_button = browser.find_element_by_xpath('//*[@id="new_repository"]/div[4]/button').click()
