@@ -32,20 +32,25 @@ function goto() {
 }
 
 function gp() {
-  file1="README.md"
-  file2=".gitignore"
-  if [[ "$1" == "$file1" ]]
+  if test -f "$1"
   then
-    git add $1
-    git commit -m "update README.md"
-  elif [[ "$1" == "$file2" ]]
-  then
-    git add $1
-    git commit -m "update .gitignore"
+    file1="README.md"
+    file2=".gitignore"
+    if [[ "$1" == "$file1" ]]
+    then
+      git add $1
+      git commit -m "update README.md"
+    elif [[ "$1" == "$file2" ]]
+    then
+      git add $1
+      git commit -m "update .gitignore"
+    else
+      read -p "Enter Commit Summary: " message
+      git add $1
+      git commit -m "$message"
+    fi
+    git push origin master
   else
-    read -p "Enter Commit Summary: " message
-    git add $1
-    git commit -m "$message"
+    echo "$1: No such file or directory"
   fi
-  git push origin master
 }
