@@ -34,19 +34,18 @@ function goto() {
 function gp() {
   file1="README.md"
   file2=".gitignore"
-  if [[ "$1" != "$file1" ]]
+  if [[ "$1" == "$file1" ]]
   then
+    git add $1
+    git commit -m "update README.md"
+  elif [[ "$1" == "$file2" ]]
+  then
+    git add $1
+    git commit -m "update .gitignore"
+  else
     read -p "Enter Commit Summary: " message
     git add $1
     git commit -m "$message"
-  else
-    if [[ "$1" != "$file2" ]]
-    then
-      git add $1
-      git commit -m "update .gitignore"
-    fi
-    git add $1
-    git commit -m "update README.md"
   fi
   git push origin master
 }
