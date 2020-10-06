@@ -27,8 +27,17 @@ function delete() {
 }
 
 function goto() {
+  currentdir=`pwd`
   cd
-  cd Documents/GitHubProjects/$1
+  cd Documents/GitHubProjects
+  if test -d "$1"
+  then
+    cd
+    cd Documents/GitHubProjects/$1
+  else
+      echo "$1: No such repository"
+    cd $currentdir
+  fi
 }
 
 function gp() {
