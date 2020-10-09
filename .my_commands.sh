@@ -59,6 +59,11 @@ function gp() {
       git commit -m "$message"
     fi
     git push origin master
+  elif test -d "$1"
+  then
+    read -p "Enter Commit Summary: " message
+    git add $1
+    git commit -m "$message"
   else
     echo "$1: No such file or directory"
   fi
