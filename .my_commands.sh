@@ -2,6 +2,8 @@
 
 alias bash_profile='open ~/.bash_profile'
 alias commands='open ~/Documents/GitHubProjects/RepoAutomations/.my_commands.sh'
+alias open_create='open ~/Documents/GitHubProjects/RepoAutomations/create.py'
+alias open_delete='open ~/Documents/GitHubProjects/RepoAutomations/delete.py'
 
 function create() {
   cd
