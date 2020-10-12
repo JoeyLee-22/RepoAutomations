@@ -66,6 +66,7 @@ function gp() {
     read -p "Enter Commit Summary: " message
     git add $1
     git commit -m "$message"
+    git push origin master
   else
     echo "$1: No such file or directory"
   fi
