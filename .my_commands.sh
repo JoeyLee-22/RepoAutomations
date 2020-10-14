@@ -52,11 +52,31 @@ function gp() {
         read -p "Auto Message? (y/n) " yn
         if [[ "$yn" == "y" ]]; then
           git commit -m "update README.md"
+          while true; do
+            read -p "Push? (y/n) " yn
+            if [[ "$yn" == "y" ]]; then
+              git push origin master
+              break
+            elif [[ "$yn" == "n" ]]; then
+              git reset HEAD~
+              break
+            fi
+          done
           break
         elif [[ "$yn" == "n" ]]; then
           read -p "Enter Commit Summary: " message
           git add $1
           git commit -m "$message"
+          while true; do
+            read -p "Push? (y/n) " yn
+            if [[ "$yn" == "y" ]]; then
+              git push origin master
+              break
+            elif [[ "$yn" == "n" ]]; then
+              git reset HEAD~
+              break
+            fi
+          done
           break
         fi
       done
@@ -66,11 +86,31 @@ function gp() {
         read -p "Auto Message? (y/n) " yn
         if [[ "$yn" == "y" ]]; then
           git commit -m "update .gitignore"
+          while true; do
+            read -p "Push? (y/n) " yn
+            if [[ "$yn" == "y" ]]; then
+              git push origin master
+              break
+            elif [[ "$yn" == "n" ]]; then
+              git reset HEAD~
+              break
+            fi
+          done
           break
         elif [[ "$yn" == "n" ]]; then
           read -p "Enter Commit Summary: " message
           git add $1
           git commit -m "$message"
+          while true; do
+            read -p "Push? (y/n) " yn
+            if [[ "$yn" == "y" ]]; then
+              git push origin master
+              break
+            elif [[ "$yn" == "n" ]]; then
+              git reset HEAD~
+              break
+            fi
+          done
           break
         fi
       done
@@ -78,21 +118,31 @@ function gp() {
       read -p "Enter Commit Summary: " message
       git add $1
       git commit -m "$message"
+      while true; do
+        read -p "Push? (y/n) " yn
+        if [[ "$yn" == "y" ]]; then
+          git push origin master
+          break
+        elif [[ "$yn" == "n" ]]; then
+          git reset HEAD~
+          break
+        fi
+      done
     fi
   elif test -d "$1"; then
     read -p "Enter Commit Summary: " message
     git add $1
     git commit -m "$message"
-  while true; do
-    read -p "Push? (y/n) " yn
-    if [[ "$yn" == "y" ]]; then
-      git push origin master
-      break
-    elif [[ "$yn" == "n" ]]; then
-      git reset HEAD~
-      break
-    fi
-  done
+    while true; do
+      read -p "Push? (y/n) " yn
+      if [[ "$yn" == "y" ]]; then
+        git push origin master
+        break
+      elif [[ "$yn" == "n" ]]; then
+        git reset HEAD~
+        break
+      fi
+    done
   else
     echo "$1: No such file or directory"
   fi
