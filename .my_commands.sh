@@ -43,30 +43,56 @@ function goto() {
 }
 
 function gp() {
-  if test -f "$1"
-  then
+  if test -f "$1"; then
     file1="README.md"
     file2=".gitignore"
-    if [[ "$1" == "$file1" ]]
-    then
+    if [[ "$1" == "$file1" ]]; then
       git add $1
-      git commit -m "update README.md"
-    elif [[ "$1" == "$file2" ]]
-    then
+      while true; do
+        read -p "Auto Message? (y/n) " yn
+        if [[ "$yn" == "y" ]]; then
+          git commit -m "update README.md"
+          break
+        elif [[ "$yn" == "n" ]]; then
+          read -p "Enter Commit Summary: " message
+          git add $1
+          git commit -m "$message"
+          break
+        fi
+      done
+    elif [[ "$1" == "$file2" ]]; then
       git add $1
-      git commit -m "update .gitignore"
+      while true; do
+        read -p "Auto Message? (y/n) " yn
+        if [[ "$yn" == "y" ]]; then
+          git commit -m "update .gitignore"
+          break
+        elif [[ "$yn" == "n" ]]; then
+          read -p "Enter Commit Summary: " message
+          git add $1
+          git commit -m "$message"
+          break
+        fi
+      done
     else
       read -p "Enter Commit Summary: " message
       git add $1
       git commit -m "$message"
     fi
-    git push origin master
-  elif test -d "$1"
-  then
+  elif test -d "$1"; then
     read -p "Enter Commit Summary: " message
     git add $1
     git commit -m "$message"
-    git push origin master
+  while true; do
+    read -p "Push? (y/n) " yn
+    if [[ "$yn" == "y" ]]; then
+      git push origin master
+      break
+    elif [[ "$yn" == "n" ]]; then
+      git reset HEAD~
+      break
+    fi
+  done
   else
     echo "$1: No such file or directory"
   fi
