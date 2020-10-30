@@ -18,4 +18,4 @@ gp -- adds then commits local changes and asks for a summary then pushes it to m
 
 For all commands, you need to give a repo or file name after the command
 
-Ex: `create test`, `gp test.py`, or `goto myRepo`
+Ex: `create newRepo`, `gp test.py`, or `goto myRepo`
