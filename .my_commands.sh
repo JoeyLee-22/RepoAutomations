@@ -43,6 +43,7 @@ function goto() {
 }
 
 function gp() {
+  ask_push=false
   if test -f "$1"; then
     file1="README.md"
     file2=".gitignore"
@@ -67,17 +68,7 @@ function gp() {
           read -p "Enter Commit Summary: " message
           git add $1
           git commit -m "$message"
-          while true; do
-            printf "\nYour Commit Summary: $message\n"
-            read -p "Push? (y/n) " yn
-            if [[ "$yn" == "y" ]]; then
-              git push origin master
-              break
-            elif [[ "$yn" == "n" ]]; then
-              git reset HEAD~
-              break
-            fi
-          done
+          ask_push=true
           break
         fi
       done
@@ -102,17 +93,7 @@ function gp() {
           read -p "Enter Commit Summary: " message
           git add $1
           git commit -m "$message"
-          while true; do
-            printf "\nYour Commit Summary: $message\n"
-            read -p "Push? (y/n) " yn
-            if [[ "$yn" == "y" ]]; then
-              git push origin master
-              break
-            elif [[ "$yn" == "n" ]]; then
-              git reset HEAD~
-              break
-            fi
-          done
+          ask_push=true
           break
         fi
       done
@@ -120,22 +101,18 @@ function gp() {
       read -p "Enter Commit Summary: " message
       git add $1
       git commit -m "$message"
-      while true; do
-        printf "\nYour Commit Summary: $message\n"
-        read -p "Push? (y/n) " yn
-        if [[ "$yn" == "y" ]]; then
-          git push origin master
-          break
-        elif [[ "$yn" == "n" ]]; then
-          git reset HEAD~
-          break
-        fi
-      done
+      ask_push=true
     fi
   elif test -d "$1"; then
     read -p "Enter Commit Summary: " message
     git add $1
     git commit -m "$message"
+    ask_push=true
+  elif !$ask_push; then
+    echo "$1: No such file or directory"
+  fi
+
+  if $ask_push; then
     while true; do
       printf "\nYour Commit Summary: $message\n"
       read -p "Push? (y/n) " yn
@@ -147,7 +124,5 @@ function gp() {
         break
       fi
     done
-  else
-    echo "$1: No such file or directory"
   fi
 }
