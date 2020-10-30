@@ -14,8 +14,8 @@ delete -- deletes given repo from github and from local files
 
 goto -- goes to a given repo to be able to use gp command
 
-gp -- adds then commits local changes and asks for a summary (summary is automatically 'update README.md' if given file is README.md) then pushes it to master for a given file
+gp -- adds then commits local changes and asks for a summary then pushes it to master for a given file
 
 For all commands, you need to give a repo or file name after the command
 
-Ex: `create test` or `gp test.py`
+Ex: `create test`, `gp test.py`, or `goto myRepo`
