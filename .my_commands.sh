@@ -59,6 +59,7 @@ function gp() {
     if $auto_message_bool; then
       git add $1
       while true; do
+        printf "\nAuto Message: $auto_message\n"
         read -p "Auto Message? (y/n) " yn
         if [[ "$yn" == "y" ]]; then
           git commit -m "$auto_message"
