@@ -68,6 +68,7 @@ function gp() {
           git add $1
           git commit -m "$message"
           while true; do
+            echo "Your Commit Summary: $message"
             read -p "Push? (y/n) " yn
             if [[ "$yn" == "y" ]]; then
               git push origin master
@@ -102,6 +103,7 @@ function gp() {
           git add $1
           git commit -m "$message"
           while true; do
+            echo "Your Commit Summary: $message"
             read -p "Push? (y/n) " yn
             if [[ "$yn" == "y" ]]; then
               git push origin master
@@ -119,6 +121,7 @@ function gp() {
       git add $1
       git commit -m "$message"
       while true; do
+        echo "Your Commit Summary: $message"
         read -p "Push? (y/n) " yn
         if [[ "$yn" == "y" ]]; then
           git push origin master
@@ -134,6 +137,7 @@ function gp() {
     git add $1
     git commit -m "$message"
     while true; do
+      echo "Your Commit Summary: $message"
       read -p "Push? (y/n) " yn
       if [[ "$yn" == "y" ]]; then
         git push origin master
