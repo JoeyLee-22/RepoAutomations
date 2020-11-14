@@ -18,10 +18,12 @@ function create() {
 }
 
 function delete() {
+  currentdir=`pwd`
   cd
   python3 Documents/GitHubProjects/RepoAutomations/delete.py $1
   cd Documents/GitHubProjects
   rm -fr $1
+  cd $currentdir
 }
 
 function goto() {
