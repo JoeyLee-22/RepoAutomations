@@ -10,10 +10,48 @@ function create() {
   cd Documents/GitHubProjects
   mkdir $1
   cd
+  
+  while true; do
+    read -p "Make Gitignore File? (y/n): " yn
+    if [[ "$yn" == "y" ]]; then
+      gitignore=true
+      break
+    elif [[ "$yn" == "n" ]]; then
+      break
+    fi
+  done
+  while true; do
+    read -p "Make README File? (y/n): " yn
+    if [[ "$yn" == "y" ]]; then
+      readme=true
+      break
+    elif [[ "$yn" == "n" ]]; then
+      break
+    fi
+  done
+
   python3 Documents/GitHubProjects/RepoAutomations/create.py $1
+
   cd Documents/GitHubProjects/$1
   git init
   git remote add origin https://github.com/JoeyLee-22/$1.git
+
+  if $readme; then
+    touch README.md	
+    git add .
+    git commit -m "Initial commit"	
+    git push -u origin master
+  fi
+  if $gitignore; then
+    touch .gitignore
+    currentdir=`pwd`
+    cd
+    python3 Documents/GitHubProjects/RepoAutomations/make_gitignore.py $1
+    cd $currentdir
+    git add .
+    git commit -m "Initial commit"	
+    git push -u origin master
+  fi
   code .
 }
 
