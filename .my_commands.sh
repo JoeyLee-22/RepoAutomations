@@ -58,10 +58,17 @@ function create() {
 function delete() {
   currentdir=`pwd`
   cd
-  python3 Documents/GitHubProjects/RepoAutomations/delete.py $1
   cd Documents/GitHubProjects
-  rm -fr $1
-  cd $currentdir
+  if test -d "$1"
+  then
+    cd
+    python3 Documents/GitHubProjects/RepoAutomations/delete.py $1
+    cd Documents/GitHubProjects
+    rm -fr $1
+  else
+    echo "$1: No such repository"
+    cd $currentdir
+  fi
 }
 
 function goto() {
