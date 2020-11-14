@@ -54,4 +54,4 @@ if readme:
 time.sleep(0.5)
 
 create_button = browser.find_element_by_xpath('//*[@id="new_repository"]/div[4]/button').click()
-# browser.close()
+browser.close()
