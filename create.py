@@ -48,6 +48,8 @@ if private:
     private_button = browser.find_element_by_id('repository_visibility_private').click()
 if gitignore:
     gitignore_button = browser.find_element_by_id('repository_gitignore_template_toggle').click()
+    open_template = browser.find_element_by_xpath('//*[@id="new_repository"]/div[4]/div[4]/div[2]/span[2]/details/summary').click()
+    python_template = browser.find_element_by_xpath('//*[@id="new_repository"]/div[4]/div[4]/div[2]/span[2]/details/details-menu/div[3]/div[1]/label[86]/span').click()
 if readme:
     readme_button = browser.find_element_by_id('repository_auto_init').click()
 
